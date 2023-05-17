@@ -37,9 +37,17 @@ class FT_PT_folder_tree(Panel):
         layout = self.layout
         row = layout.row()
         directory_path = r'C:\Users\One\Desktop\Новая папка'
-        box = layout.box()
+        
         for i in create_directory_tree(directory_path):
-            box.label(text=i)
+            if i[-1] == '/':
+                row = layout.row()
+                row.label(text=i, icon='FILE_FOLDER')
+            if i[-6::] == '.blend':         
+                row = layout.row()
+                row.label(text=i, icon='BLENDER')
+            if i[-3::] == '.py':         
+                row = layout.row()
+                row.label(text=i, icon='FILE_SCRIPT')
 
 
 classes = (
