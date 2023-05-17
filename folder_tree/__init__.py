@@ -12,7 +12,7 @@ def create_directory_tree(path, indent=''):
         item_path = os.path.join(path, item)
         if os.path.isdir(item_path):
             file_list.append(indent + item + '/')
-            file_list.extend(create_directory_tree(item_path, indent + '  '))
+            file_list.extend(create_directory_tree(item_path, indent + '        '))
         else:
             file_list.append(indent + item)
     return file_list
